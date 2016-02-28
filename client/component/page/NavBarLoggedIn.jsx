@@ -8,12 +8,12 @@ NavBarLoggedIn = React.createClass({
 						<span className="icon-bar"></span>
 					</a>
 					<div className="img-container">
-						<a className="navbar-brand" href='/'>moviU</a>
+						<a className="navbar-brand" href='/'><font color="white">moviU</font></a>
 					</div>
 					<ul className="nav navbar-nav navbar-right">
-						<li><a href="/">Notifications</a></li>
-						<li><a href="/StudentHome">Home</a></li>
-						<li><a href="/">Settings</a></li>
+						<li><a href="/"><font color="white">Notifications</font></a></li>
+						<li><a href="/StudentHome"><font color="white">Home</font></a></li>
+						<li><a href="/"><font color="white">Settings</font></a></li>
 					</ul>
 				</div>
 			</div>
