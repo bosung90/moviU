@@ -12,7 +12,7 @@ NavBarLoggedIn = React.createClass({
 					</div>
 					<ul className="nav navbar-nav navbar-right">
 					<li><a href="/">Notifications</a></li>
-					<li><a href="/StudentHomePage">Home</a></li>
+					<li><a href="/StudentHome">Home</a></li>
 					<li><a href="/">Settings</a></li>
 					</ul>
 				</div>
