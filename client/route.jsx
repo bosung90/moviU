@@ -39,3 +39,15 @@ FlowRouter.route('/WorkSession', {
 		ReactLayout.render(WorkSessionPage)
 	}
 })
+
+FlowRouter.route('/Logout', {
+	action(params, queryParams) {
+		ReactLayout.render(LogoutPage)
+	}
+})
+
+FlowRouter.route('/RegisterPage', {
+	action(params, queryParams) {
+		ReactLayout.render(RegisterPage)
+	}
+})

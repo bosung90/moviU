@@ -2,24 +2,17 @@ RegisterForm = React.createClass({
 	mixins: [ReactMeteorData],
   getMeteorData() {
     return {
-      students: Students.find({}).fetch()
+      user: Meteor.user()
     }
   },
-	getInitialState() {
-		return {
-			errorMessage: null
-		}
-	},
 	handleRegister(event) {
 		event.preventDefault()
 		const name = this.refs.registerNameInput.value.trim()
 		const email = this.refs.registerEmailInput.value.trim()
 		const password = this.refs.registerPasswordInput.value.trim()
 		const confirm_password = this.refs.registerConfirmPasswordInput.value.trim()
-		// const course = this.refs.registerCourse.value.trim()
 		if (password !== confirm_password){
 			alert('password doesnt match!')
-			this.setState({errorMessage: 'Passwords do not match. Please try again.'})
 			return
 		}
 		Accounts.createUser({
@@ -27,16 +20,9 @@ RegisterForm = React.createClass({
 			password: password
 		}, (err) => {
 			if(err) {
-				this.setState({errorMessage: err.reason})
-			} else {
-				FlowRouter.go('/StudentHomePage')
+				alert(err.reason)
 			}
 		})
-		if (err) {
-			this.setState({errorMessage: err.reason})
-		} else {
-			FlowRouter.go('/StudentHomePage')
-		}
 	},
 	render() {
 		return (
