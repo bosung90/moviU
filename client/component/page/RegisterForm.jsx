@@ -50,32 +50,45 @@ mixins: [ReactMeteorData],
 	render() {
 		return (
 			<div>
-			<div style={{color: 'white', padding: 50}}></div>
+			<div style={{color: 'white', paddingTop: 30, margin: 50}}></div>
 			<div id="moviU_register">
 				<div className="moviU_container">
 				<h1>Register for an Account!</h1>
 				<br />
 				<form id="movi_register_form" className="span_12" onSubmit={this.handleRegister}>
+					<div class="form-group">
 					<table className="no-spacing span_12 movi_register_form">
 					<tbody>
 						<tr>
+							<div class="col-sm-10">
 							<label htmlFor="name">Name:  </label>
-							<input type="name" name="name" id="name" className="span_12" ref='registerNameInput' required/>
+							<br></br>
+							<input type="name" name="name" id="name" placeholder="Name" className="span_12" ref='registerNameInput' required/>
+							</div>
 							<br></br>
 						</tr>
 						<tr>
+							<div class="col-sm-10">
 							<label htmlFor="email">E-mail:  </label>
-							<input type="email" name="email" id="email" className="span_12" ref='registerEmailInput' required/>
+							<br></br>
+							<input type="email" name="email" id="email" placeholder="E-mail" className="span_12" ref='registerEmailInput' required/>
+							</div>
 							<br></br>
 						</tr>
 						<tr>
+							<div class="col-sm-10">
 							<label htmlFor="password">Password:  </label>
-							<input type="password" name="password" id="password" className="span_12" ref='registerPasswordInput' required/>
+							<br></br>
+							<input type="password" name="password" id="password" placeholder="Password" className="span_12" ref='registerPasswordInput' required/>
+							</div>
 							<br></br>
 						</tr>
 						<tr>
+							<div class="col-sm-10">
 							<label htmlFor="confirm_password">Confirm Password:  </label>
-							<input type="confirm_password" name="confirm_password" id="confirm_password" className="span_12" ref='registerConfirmPasswordInput' required/>
+							<br></br>
+							<input type="password" name="confirm_password" id="confirm_password" placeholder="Password" className="span_12" ref='registerConfirmPasswordInput' required/>
+							</div>
 							<br></br>
 						</tr>
 					</tbody>
@@ -84,10 +97,11 @@ mixins: [ReactMeteorData],
 					<div className="checkbox_agreement">
 							<input type="checkbox" style={{marginTop: 10, float: 'left'}} ref='checkbox_agreement' required/><p style={{marginTop: 10}}> I agree to the terms and conditions. This is a disclaimer test. This helps us not get sued and allows us to operate safely and easily.</p> 
 					</div>
-					<button style={{marginTop: 9, height: 68, fontSize: '100%'}} className="register_button yellow" type="submit" >
+					</div>
+					<button style={{marginTop: 9, height: 68, fontSize: '100%'}} className="btn btn-primary" type="submit" >
 							Register
 					</button>
-				</form>
+					</form>
 				</div>
 			</div>
 			</div>

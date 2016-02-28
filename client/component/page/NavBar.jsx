@@ -1,6 +1,8 @@
 NavBar = React.createClass({
 	render() {
 		return (
+				<div>
+				<div style={{color: 'purple', padding: 50}}></div>
 				<div id="navigation-bar">
 				<div className="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
 					<a className="navbar-toggle">
@@ -11,6 +13,7 @@ NavBar = React.createClass({
 						<a className="navbar-brand" href='/'>Logo Goes Here</a>
 					</div>
 				</div>
+			</div>
 			</div>
 		)
 	}
