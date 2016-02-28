@@ -2,7 +2,8 @@ MainPage = React.createClass({
 	render() {
 		return (
 			<div>
-			<NavBarLoggedIn />
+			<NavBar />
+			<RegisterForm />
 			<p>This is the main page!</p>
 			</div>
 		)
