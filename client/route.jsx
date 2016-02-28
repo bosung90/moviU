@@ -4,6 +4,12 @@ FlowRouter.route('/', {
 	}
 })
 
+FlowRouter.route('/Course/:courseId', {
+	action(params, queryParams) {
+		ReactLayout.render(MainCoursePage, {courseId: params.courseId})
+	}
+})
+
 FlowRouter.route('/AskAQuestion', {
 	action(params, queryParams) {
 		ReactLayout.render(AskAQuestionPage)
