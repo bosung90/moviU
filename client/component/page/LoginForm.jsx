@@ -20,13 +20,6 @@ LoginForm = React.createClass({
 	render() {
 		if(this.data.user) {
 			FlowRouter.go('/StudentHome')
-			/*return (
-				<div>
-					Welcome back {this.data.user ? this.data.user.profile.name : null}
-					<h3>You are about to enter {this.props.courseId}.</h3>
-					<a href='/StudentHome'>Click to continue...</a>
-				</div>
-			)*/
 		} else {
 			return (
 				<div>
