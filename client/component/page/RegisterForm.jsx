@@ -12,25 +12,27 @@ RegisterForm = React.createClass({
 	},
 	handleRegister(event) {
 		event.preventDefault()
-		alert ('hjkjhyhj')
 		const name = this.refs.registerNameInput.value.trim()
 		const email = this.refs.registerEmailInput.value.trim()
 		const password = this.refs.registerPasswordInput.value.trim()
 		const confirm_password = this.refs.registerConfirmPasswordInput.value.trim()
 		// const course = this.refs.registerCourse.value.trim()
-		if (password != confirm_password){
-			alert('password')
+		if (password !== confirm_password){
+			alert('password doesnt match!')
 			this.setState({errorMessage: 'Passwords do not match. Please try again.'})
 			return
-		} 
-		Students.insert({
-			name: name,
+		}
+		Accounts.createUser({
 			email: email,
-			password: password,
-			course: course
+			password: password
+		}, (err) => {
+			if(err) {
+				this.setState({errorMessage: err.reason})
+			} else {
+				FlowRouter.go('/StudentHomePage')
+			}
 		})
 		if (err) {
-			alert('in here!')
 			this.setState({errorMessage: err.reason})
 		} else {
 			FlowRouter.go('/StudentHomePage')
@@ -39,8 +41,6 @@ RegisterForm = React.createClass({
 	render() {
 		return (
 			<div>
-				<div style={{color: 'white', paddingTop: 30, margin: 50}}>
-				</div>
 				<div id="moviU_register">
 					<div className="moviU_container">
 						<h1>Register for an Account!</h1>

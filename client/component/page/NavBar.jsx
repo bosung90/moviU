@@ -2,7 +2,7 @@ NavBar = React.createClass({
 	render() {
 		return (
 			<div>
-				<div style={{color: 'purple', padding: 50}}>
+				<div style={{color: 'purple', padding: 20}}>
 				</div>
 				<div id="navigation-bar">
 					<div className="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
