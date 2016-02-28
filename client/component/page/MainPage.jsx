@@ -4,6 +4,7 @@ MainPage = React.createClass({
 			<div>
 				<NavBar />
 				<RegisterForm />
+				<LoginForm />
 			</div>
 		)
 	}
