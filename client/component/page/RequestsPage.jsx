@@ -7,7 +7,6 @@ RequestsPage = React.createClass({
 		}
 	},
 	_renderRequestsTableRows(){
-		console.log(Meteor.userId())
 		if(this.data.questions) {
 			let questionNum = 1
 			return this.data.questions.map((question) => {

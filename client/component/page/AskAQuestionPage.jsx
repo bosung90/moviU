@@ -10,7 +10,8 @@ AskAQuestionPage = React.createClass({
 		e.preventDefault()
 		const title = e.target[0].value.trim()
 		const description = e.target[1].value.trim()
-		Questions.insert({title: title, question: description, status: 'Unanswered', answers: [], createdDate: Date.now(), lastModified: Date.now(), poster: this.data.user._id, current_mentor: this.data.students[0].userId},
+		const mentorUserId = this.data.students[Math.floor(this.data.students.length * Random.fraction())].userId
+		Questions.insert({title: title, question: description, status: 'Unanswered', answers: [], createdDate: Date.now(), lastModified: Date.now(), poster: this.data.user._id, current_mentor: mentorUserId, exhaustedUsers: [mentorUserId, this.data.user._id]},
 			(e, questionId)=>{
 				FlowRouter.go('/WorkSession/' + questionId)
 			}
