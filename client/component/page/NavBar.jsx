@@ -17,7 +17,7 @@ NavBar = React.createClass({
 							<span className="icon-bar"></span>
 						</a>
 						<div className="img-container">
-							<a className="navbar-brand" href='/'><font color="white">MoviU</font></a>
+							<a className="navbar-brand" href='/'>MoviU</a>
 						</div>
 						{ this.data.user ?
 							<ul className="nav navbar-nav navbar-right" style={{marginRight: '8px'}}>

@@ -28,7 +28,7 @@ WorkSessionPage = React.createClass({
 	_renderAnswers() {
 		return this.data.questions.map((question)=>{
 			return question.answers.map((answer)=>{
-				return <div>{answer}</div>
+				return <li className="left clearfix" style={{ color: '#666' }}>{answer}</li>
 			})
 		})
 	},
@@ -40,7 +40,7 @@ WorkSessionPage = React.createClass({
 	_renderResolveButtons(){
 		return (
 			<div>
-				<button onClick={()=>Questions.update(this.props.questionsId, {$set: {status: 'Answered', lastModified: Date.now()}})}><img src='/img/heart.png'/>Resolve</button>
+				<button style={{marginRight: '15px'}} onClick={()=>Questions.update(this.props.questionsId, {$set: {status: 'Answered', lastModified: Date.now()}})}><img src='/img/heart.png'/>Resolve</button>
 				<button onClick={this._onMentorReject}><img src='/img/heart-broken.png'/>Reject</button>
 			</div>
 		)
@@ -49,7 +49,7 @@ WorkSessionPage = React.createClass({
 		if(this.data.user 
 			&& this.data.questions
 			&& this.data.questions.length > 0
-			&& this.data.questions[0].status === 'Unswered'
+			&& this.data.questions[0].status === 'Unanswered'
 			&& this.data.user._id !== this.data.questions[0].poster
 			&& this.data.user._id !== this.data.questions[0].current_mentor) {
 				return (
@@ -62,6 +62,8 @@ WorkSessionPage = React.createClass({
 			return (
 				<div>
 					<NavBar />
+
+					<div style={{ width: "60%" }} className="center-block">
 					<br />
 					{
 						this.data.mentors && this.data.mentors.length > 0 ?
@@ -87,13 +89,22 @@ WorkSessionPage = React.createClass({
 						:
 						null
 					}
-					<div ref='objDiv' style={{height: '300px', width: '100%', overflowY: 'scroll'}}>
-						{this._renderAnswers()}
-					</div>
-					<form onSubmit={this._onChatSubmit}>
-						<input style={{width: '500px'}}></input>
-						<button type='submit'>Submit</button>
-					</form>
+                                        <div className="panel panel-primary" ref='objDiv' style={{width: '100%'}}>
+					    <div className="panel-body">
+                                                <ul className="chat"> 
+                                                {this._renderAnswers()}
+                                                </ul>
+                                            </div>
+                                            <div className="panel-footer">
+                                                <div className="input-group">
+                                                <form onSubmit={this._onChatSubmit}>
+                                                    <input placeholder="Your message" style={{paddingLeft: '15px'}}></input>
+                                                    <button type='submit'>Send</button>
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
 				</div>
 			)
 		}
