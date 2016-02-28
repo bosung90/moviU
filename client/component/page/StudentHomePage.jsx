@@ -1,4 +1,10 @@
 StudentHomePage = React.createClass({
+	mixins: [ReactMeteorData],
+	getMeteorData() {
+		return {
+			user: Meteor.user()
+		}
+	},
 	_buttonClassStr() {
 		return "btn btn-primary btn-lg btn-block"
 	},
@@ -29,7 +35,7 @@ StudentHomePage = React.createClass({
 			<div>
 				<NavBarLoggedIn />
 				<div style={ { marginTop: "70px" } }>
-					<h1>Welcome Student!</h1>
+					<h1>Welcome {this.data.user ? this.data.user.emails[0].address : null}</h1>
 					<div style={ { width: "200px" } } className="center-block">
 						{this._renderAskQuestionButton()}
 						{this._renderMyQuestionsButton()}

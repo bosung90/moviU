@@ -1,7 +1,5 @@
 LoginForm = React.createClass({
-
 	mixins: [ReactMeteorData],
-
 	getMeteorData() {
 		return {
 			user: Meteor.user()
@@ -11,7 +9,6 @@ LoginForm = React.createClass({
 		event.preventDefault()
 		const email = this.refs.loginEmailInput.value.trim()
 		const password = this.refs.loginPasswordInput.value.trim()
-
 		Meteor.loginWithPassword(email, password, (err, result) => {
 			if(err) {
 				alert(err.reason)
@@ -23,14 +20,15 @@ LoginForm = React.createClass({
 		if(this.data.user) {
 			return (
 				<div>
-					Welcome back {this.data.user.email}
+					Welcome back {this.data.user ? this.data.user.emails[0].address : null}
 				</div>
 			)
 		} else {
 			return (
 				<div>
 					<form key='0' id="movi_login_form" className="span_12" onSubmit={this.handleLogin}>
-						<h3>Login Here:</h3>
+						<h3>Welcome to CPSC310 2016.</h3>
+						<h3>Create or login to start earning bonus marks.</h3>
 						<br />
 						<table className="movi_login_table no-spacing span_12" style={{marginTop: 10 + 'px'}}>
 							<tbody>
@@ -48,11 +46,13 @@ LoginForm = React.createClass({
 							</tr>
 							</tbody>
 						</table>
-					</form>
-					<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} type="submit">
+						<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} type="submit">
 							Login
 						</button>
-
+					</form>
+					<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} onClick={()=>FlowRouter.go('/RegisterPage')}>
+						Create Account
+					</button>
 				</div>
 			)
 		}
