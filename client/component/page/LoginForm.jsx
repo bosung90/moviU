@@ -12,18 +12,21 @@ LoginForm = React.createClass({
 		Meteor.loginWithPassword(email, password, (err, result) => {
 			if(err) {
 				alert(err.reason)
+			} else {
+				FlowRouter.go('/StudentHome')
 			}
 		})
 	},
 	render() {
 		if(this.data.user) {
-			return (
+			FlowRouter.go('/StudentHome')
+			/*return (
 				<div>
 					Welcome back {this.data.user ? this.data.user.profile.name : null}
 					<h3>You are about to enter {this.props.courseId}.</h3>
 					<a href='/StudentHome'>Click to continue...</a>
 				</div>
-			)
+			)*/
 		} else {
 			return (
 				<div>

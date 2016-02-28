@@ -25,7 +25,8 @@ RegisterForm = React.createClass({
 			if(err) {
 				alert(err.reason)
 			} else {
-				FlowRouter.go('/Course/' + this.props.courseId)
+				FlowRouter.go('/StudentHome')
+				// FlowRouter.go('/Course/' + this.props.courseId)
 			}
 		})
 	},
