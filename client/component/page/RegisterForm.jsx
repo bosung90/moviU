@@ -17,10 +17,15 @@ RegisterForm = React.createClass({
 		}
 		Accounts.createUser({
 			email: email,
-			password: password
+			password: password,
+			profile: {
+				name: name
+			}
 		}, (err) => {
 			if(err) {
 				alert(err.reason)
+			} else {
+				FlowRouter.go('/')
 			}
 		})
 	},

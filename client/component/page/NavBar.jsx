@@ -8,7 +8,7 @@ NavBar = React.createClass({
 	render() {
 		return (
 			<div>
-				<div style={{padding: 25}}>
+				<div style={{padding: 35}}>
 				</div>
 				<div id="navigation-bar">
 					<div className="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
@@ -20,10 +20,10 @@ NavBar = React.createClass({
 							<a className="navbar-brand" href='/'>MoviU</a>
 						</div>
 						{ this.data.user ?
-							[
-								<a href='/StudentHome'>StudentHome</a>,
-								<a href='/Logout'>LOGOUT</a>,
-							]
+							<ul className="nav navbar-nav navbar-right" style={{marginRight: '8px'}}>
+								<li><a href="/StudentHome">StudentHome</a></li>
+								<li><a href="/Logout">Logout</a></li>
+							</ul>
 							:
 							null
 						}

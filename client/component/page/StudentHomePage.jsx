@@ -33,15 +33,12 @@ StudentHomePage = React.createClass({
 	render() {
 		return (
 			<div>
-				<NavBarLoggedIn />
-				<div style={ { marginTop: "70px" } }>
-					<h1>Welcome {this.data.user ? this.data.user.emails[0].address : null}</h1>
-					<div style={ { width: "200px" } } className="center-block">
-						{this._renderAskQuestionButton()}
-						{this._renderMyQuestionsButton()}
-						{this._renderRequestsButton()}
-						{this._renderMyRewardsButton()}
-					</div>
+				<NavBar />
+				<div style={ { width: "200px" } } className="center-block">
+					{this._renderAskQuestionButton()}
+					{this._renderMyQuestionsButton()}
+					{this._renderRequestsButton()}
+					{this._renderMyRewardsButton()}
 				</div>
 			</div>
 		)

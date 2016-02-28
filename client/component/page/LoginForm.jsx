@@ -15,12 +15,11 @@ LoginForm = React.createClass({
 			}
 		})
 	},
-
 	render() {
 		if(this.data.user) {
 			return (
 				<div>
-					Welcome back {this.data.user ? this.data.user.emails[0].address : null}
+					Welcome back {this.data.user ? this.data.user.profile.name : null}
 				</div>
 			)
 		} else {
