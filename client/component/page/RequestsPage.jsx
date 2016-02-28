@@ -26,6 +26,7 @@ RequestsPage = React.createClass({
 		return(
 			<div>
 				<NavBar />
+				<div style={{ width: "60%" }} className="center-block">
 				<div className="table-responsive table-bordered table-striped">
 					<table className="table">
 						<thead>
@@ -40,6 +41,7 @@ RequestsPage = React.createClass({
 							{this._renderRequestsTableRows()}
 						</tbody>
 					</table>
+				</div>
 				</div>
 			</div>
 		)

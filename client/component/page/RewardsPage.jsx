@@ -38,7 +38,7 @@ RewardsPage = React.createClass({
 				<br />
 				<br />
 				
-
+				<div style={{ width: "60%" }} className="center-block">
 				<div className="table-responsive table-bordered table-striped">
 					<table className="table">
 					    <thead>
@@ -51,6 +51,7 @@ RewardsPage = React.createClass({
 					    	{this._renderQuestionsTableRows()}
 					    </tbody>
 					  </table>
+				  </div>
 				  </div>
 			</div>
 		)
