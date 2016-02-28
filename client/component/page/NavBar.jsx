@@ -21,6 +21,7 @@ NavBar = React.createClass({
 						</div>
 						{ this.data.user ?
 							<ul className="nav navbar-nav navbar-right" style={{marginRight: '8px'}}>
+								<li><a>Welcome {this.data.user.profile.name}</a></li>
 								<li><a href="/StudentHome">StudentHome</a></li>
 								<li><a href="/Logout">Logout</a></li>
 							</ul>

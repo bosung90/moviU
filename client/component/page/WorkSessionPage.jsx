@@ -61,7 +61,7 @@ WorkSessionPage = React.createClass({
 						:
 						null
 					}
-					<div ref='objDiv' style={{height: '400px', width: '400px', overflowY: 'scroll'}}>
+					<div ref='objDiv' style={{height: '300px', width: '100%', overflowY: 'scroll'}}>
 						{this._renderAnswers()}
 					</div>
 					<form onSubmit={this._onChatSubmit}>

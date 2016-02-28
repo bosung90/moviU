@@ -3,14 +3,14 @@ AskAQuestionPage = React.createClass({
 	getMeteorData() {
 		return {
 			user: Meteor.user(),
-			students: Students.find({userId: {$ne: Meteor.userId}}).fetch()
+			students: Students.find({userId: {$ne: Meteor.userId()}}).fetch()
 		}
 	},
 	_onQuestionSubmit(e) {
 		e.preventDefault()
 		const title = e.target[0].value.trim()
 		const description = e.target[1].value.trim()
-		Questions.insert({title: title, question: description, status: 'Unanswered', answers: [], createdDate: Date.now(), lastModified: Date.now(), poster: this.data.user._id, current_metor: this.data.students[0].userId},
+		Questions.insert({title: title, question: description, status: 'Unanswered', answers: [], createdDate: Date.now(), lastModified: Date.now(), poster: this.data.user._id, current_mentor: this.data.students[0].userId},
 			(e, questionId)=>{
 				FlowRouter.go('/WorkSession/' + questionId)
 			}

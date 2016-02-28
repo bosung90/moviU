@@ -1,26 +1,23 @@
 RequestsPage = React.createClass({
 	mixins: [ReactMeteorData],
 	getMeteorData(){
-		const studentId = 1234 //Session.get(id)
 		return {
-			questions: Questions.find({current_mentor: studentId}).fetch()
+			user: Meteor.user(),
+			questions: Questions.find({current_mentor: Meteor.userId()}).fetch()
 		}
 	},
-	goToQuestion(){
-		FlowRouter.go('/Questions')
-	},
-	renderRows(){
-	if(this.data.questions) {
+	_renderRequestsTableRows(){
+		console.log(Meteor.userId())
+		if(this.data.questions) {
+			let questionNum = 1
 			return this.data.questions.map((question) => {
+				const formattedDate = moment(question.createdDate).format("MMM Do, YYYY")
 				return (
 					<tr key={question._id}>
-						<td><div className="center">{question.title}</div></td>
-						<td><div className="center">{"  "}</div></td>
-						<td><div className="center">{question.date}</div></td>
-						<td><div className="center">{"  "}</div></td>
-						<td><div className="center">{question.status}</div></td>
-						<td><div className="center">{"  "}</div></td>
-						<td><div className="center"><button style={{marginTop: 9, height: 40, fontSize: '100%'}} onClick= {this.goToQuestion} >Answer Question</button></div></td>
+						<td>{questionNum++}</td>
+						<td><a href={'/WorkSession/'+question._id}>{question.title}</a></td>
+						<td>{formattedDate}</td>
+						<td>{question.status}</td>
 					</tr>
 				)
 			})
@@ -28,21 +25,23 @@ RequestsPage = React.createClass({
 	},
 	render() {
 		return(
-			<div className="marginTop">
-			<NavBarLoggedIn />
-				<table className="no-spacing standard" style={{width: '100%', color: "blue", margin: "4cm 4cm 0cm 1cm", 
-				textAlign : "left", fontSize : "30px"}}>
-					<tbody>
-						<tr>
-							<th className="span_2"><div className="center">Requests</div></th>
-							<td><div className="center">{"  "}</div></td>
-							<th className="span_2"><div className="center">Date</div></th>
-							<td><div className="center">{"  "}</div></td>
-							<th className="span_2"><div className="center">Status</div></th>
-						</tr>
-						{this.renderRows()}
-					</tbody>
-				</table>
+			<div>
+				<NavBar />
+				<div className="table-responsive table-bordered table-striped">
+					<table className="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Requests</th>
+								<th>Date</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this._renderRequestsTableRows()}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		)
 	}
