@@ -38,7 +38,7 @@ RegisterForm = React.createClass({
 						<br />
 						<form id="movi_register_form" className="col-sm-12" onSubmit={this.handleRegister}>
 							<div className="form-group">
-								<div className="no-spacing col-sm-12 movi_register_form" align = "centre"> <table align="right">
+								<div className="no-spacing col-sm-12 movi_register_form" align = "centre">
 									<div className="col-sm-10">
 										<label htmlFor="name"> </label>
 										<input type="name" name="name" id="name" placeholder="Your Name" className="span_12" ref='registerNameInput' required/>
@@ -59,7 +59,7 @@ RegisterForm = React.createClass({
 										<input  type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"  className="span_12" ref='registerConfirmPasswordInput' required/>
 										<br/>
 									</div>
-									</table>
+									
 
 								</div>
 								<div className="col-sm-10">
