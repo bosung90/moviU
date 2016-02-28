@@ -68,7 +68,7 @@ RegisterForm = React.createClass({
 							<button style={{marginTop: 9, height: 44, fontSize: '100%'}} className="btn btn-primary" type="submit" >
 								Register
 							</button>
-							<a href='/'>I already have an account</a>
+							<a href={'/Course/' + this.props.courseId}>I already have an account</a>
 						</form>
 					</div>
 				</div>
