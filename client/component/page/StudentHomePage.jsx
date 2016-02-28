@@ -10,23 +10,23 @@ StudentHomePage = React.createClass({
 	},
 	_renderAskQuestionButton() {
 		return (
-			<a href="AskAQuestion" className={this._buttonClassStr()}>
+			<a href="/AskAQuestion" className={this._buttonClassStr()}>
 				Ask A Question
 			</a>
 		)
 	},
 	_renderMyQuestionsButton() {
-		return <a href="Questions" className={this._buttonClassStr()}>
+		return <a href="/Questions" className={this._buttonClassStr()}>
 					My Questions
 				 </a>
 	},
 	 _renderRequestsButton() {
-		return <a href="Requests" className={this._buttonClassStr()}>
+		return <a href="/Requests" className={this._buttonClassStr()}>
 					Requests
 				 </a>
 	},
 	_renderMyRewardsButton() {
-		return <a href="Rewards" className={this._buttonClassStr()}>
+		return <a href="/Rewards" className={this._buttonClassStr()}>
 					My Rewards
 				 </a>
 	},
