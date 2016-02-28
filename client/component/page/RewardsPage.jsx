@@ -1,4 +1,4 @@
-RegisterPage = React.createClass({
+RewardsPage = React.createClass({
 	render() {
 		return (
 			<div>

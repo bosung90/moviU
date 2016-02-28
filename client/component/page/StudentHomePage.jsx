@@ -1,4 +1,4 @@
-RegisterPage = React.createClass({
+StudentHomePage = React.createClass({
 	render() {
 		return (
 			<div>

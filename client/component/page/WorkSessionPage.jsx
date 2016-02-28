@@ -1,4 +1,4 @@
-RegisterPage = React.createClass({
+WorkSessionPage = React.createClass({
 	render() {
 		return (
 			<div>

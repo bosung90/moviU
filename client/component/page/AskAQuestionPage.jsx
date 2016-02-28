@@ -1,4 +1,4 @@
-RegisterPage = React.createClass({
+AskAQuestionPage = React.createClass({
 	render() {
 		return (
 			<div>

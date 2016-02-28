@@ -1,4 +1,4 @@
-RegisterPage = React.createClass({
+LoginForm = React.createClass({
 	render() {
 		return (
 			<div>
