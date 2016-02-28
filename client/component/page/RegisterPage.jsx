@@ -3,7 +3,7 @@ RegisterPage = React.createClass({
 		return(
 			<div>
 				<NavBar />
-				<RegisterForm />
+				<RegisterForm courseId={this.props.courseId}/>
 			</div>
 		)
 	}

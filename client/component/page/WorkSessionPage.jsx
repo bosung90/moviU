@@ -2,7 +2,7 @@ WorkSessionPage = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     return {
-      questions: Questions.find({title: 'title'}).fetch()
+      questions: Questions.find(this.props.questionsId).fetch()
     }
   },
 	_onChatSubmit(e) {
@@ -11,6 +11,7 @@ WorkSessionPage = React.createClass({
 		if(this.data.questions && this.data.questions.length > 0) {
 			Questions.update(this.data.questions[0]._id, {$push: {answers: chatMessage}}, (e, arg)=>{
 				this.refs.objDiv.scrollTop = this.refs.objDiv.scrollHeight
+				Questions.update(this.data.questions[0]._id, {$set: {lastModified: Date.now()}})
 			})
 		}
 		e.target[0].value = ''
@@ -26,6 +27,9 @@ WorkSessionPage = React.createClass({
 	render() {
 		return (
 			<div>
+				<NavBar />
+				{this.props.questionsId}
+				<br />
 				Session Questino Goes Here
 				<button>Resolve</button>
 				<div ref='objDiv' style={{height: '400px', width: '400px', overflowY: 'scroll'}}>

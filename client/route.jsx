@@ -40,9 +40,9 @@ FlowRouter.route('/StudentHome', {
 	}
 })
 
-FlowRouter.route('/WorkSession', {
+FlowRouter.route('/WorkSession/:questionsId', {
 	action(params, queryParams) {
-		ReactLayout.render(WorkSessionPage)
+		ReactLayout.render(WorkSessionPage, {questionsId: params.questionsId})
 	}
 })
 
@@ -52,8 +52,8 @@ FlowRouter.route('/Logout', {
 	}
 })
 
-FlowRouter.route('/RegisterPage', {
+FlowRouter.route('/RegisterPage/:courseId', {
 	action(params, queryParams) {
-		ReactLayout.render(RegisterPage)
+		ReactLayout.render(RegisterPage, {courseId: params.courseId})
 	}
 })

@@ -37,7 +37,7 @@ QuestionsPage = React.createClass({
 	render() {
 		return (
 			<div>
-				<NavBarLoggedIn />
+				<NavBar />
 				<br />
 				<br />
 				<br />

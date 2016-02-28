@@ -51,7 +51,7 @@ LoginForm = React.createClass({
 							Login
 						</button>
 					</form>
-					<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} onClick={()=>FlowRouter.go('/RegisterPage')}>
+					<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} onClick={()=>FlowRouter.go('/RegisterPage/' + this.props.courseId)}>
 						Create Account
 					</button>
 				</div>
