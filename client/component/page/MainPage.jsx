@@ -34,9 +34,9 @@ MainPage = React.createClass({
 					<img src='/img/splash_page.jpeg' width='100%' style={{marginTop: -20 + 'px'}}/>
 					</div>
 					<div style={{position: "relative", width: 80 + '%'}}>
-					<div style={{position: "absolute", top: 50 + '%', left: 50 + '%', color: 'white'}}>
-					<blockquote className="block-quote reverse">About sdfsdfsdfdf
-					<footer>moviU team</footer></blockquote>
+					<div style={{position: "absolute", top: 50 + '%', left: 50 + '%', color: "rgb(300,300,220)"}}>
+					<blockquote className="block-quote reverse" style= { { borderLeft: "none", marginTop: 10 + '%', padding: "0.5em 10px" , color : "rgb(300,300,220)", fontStyle: "italic", textShadow : "0.5px 0.5px black"}}>moviU fosters collaboration amongst classmates to accelerate the learning process
+					<footer style = { { color : "rgb(300,300,220)"}}>moviU team</footer ></blockquote>
 					</div>
 					</div>
 						<div style={{width: 100 + '%'}}>
