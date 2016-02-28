@@ -22,11 +22,15 @@ LoginForm = React.createClass({
 			FlowRouter.go('/StudentHome')
 		} else {
 			return (
+
+
 				<div>
+				<div style={{ width: "60%" }} className="center-block">
 					<form key='0' id="movi_login_form" className="span_12" onSubmit={this.handleLogin}>
 						<h3>Welcome to {this.props.courseId}.</h3>
 						<h3>Create or login to start earning bonus marks.</h3>
 						<br />
+
 						<table className="movi_login_table no-spacing span_12" style={{marginTop: 10 + 'px'}}>
 							<tbody>
 							<tr>
@@ -50,6 +54,7 @@ LoginForm = React.createClass({
 					<button className="btn btn-primary" style={{marginTop: 9 + 'px', height: 51 + 'px'}} onClick={()=>FlowRouter.go('/RegisterPage/' + this.props.courseId)}>
 						Create Account
 					</button>
+					</div>
 				</div>
 			)
 		}
