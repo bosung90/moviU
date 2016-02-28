@@ -2,6 +2,7 @@ WorkSessionPage = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     return {
+    	user: Meteor.user(),
       questions: Questions.find(this.props.questionsId).fetch()
     }
   },
@@ -25,21 +26,50 @@ WorkSessionPage = React.createClass({
 		})
 	},
 	render() {
-		return (
-			<div>
-				<NavBar />
-				{this.props.questionsId}
-				<br />
-				Session Questino Goes Here
-				<button>Resolve</button>
-				<div ref='objDiv' style={{height: '400px', width: '400px', overflowY: 'scroll'}}>
-					{this._renderAnswers()}
+		if(this.data.user 
+			&& this.data.questions
+			&& this.data.questions.length > 0
+			&& this.data.questions[0].status === 'Unswered'
+			&& this.data.user._id !== this.data.questions[0].poster
+			&& this.data.user._id !== this.data.questions[0].current_mentor) {
+				return (
+					<div>
+						<NavBar />
+						Sorry, this question is either closed or you are not authorized
+					</div>
+				)
+		} else {
+			return (
+				<div>
+					<NavBar />
+					<br />
+					{ this.data.user
+						&& this.data.questions
+						&& this.data.questions.length > 0
+						&& this.data.user._id === this.data.questions[0].poster ?
+							<button onClick={()=>Questions.update(this.props.questionsId, {$set: {status: 'Answered', lastModified: Date.now()}})}>Resolve</button>
+							:
+							null
+					}
+					{this.data.questions && this.data.questions.length > 0 ?
+						<div>
+							<strong>Title: {this.data.questions[0].title}</strong>
+							<br />
+							<strong>Question: {this.data.questions[0].question}</strong>
+							<br />
+						</div>
+						:
+						null
+					}
+					<div ref='objDiv' style={{height: '400px', width: '400px', overflowY: 'scroll'}}>
+						{this._renderAnswers()}
+					</div>
+					<form onSubmit={this._onChatSubmit}>
+						<input style={{width: '500px'}}></input>
+						<button type='submit'>Submit</button>
+					</form>
 				</div>
-				<form onSubmit={this._onChatSubmit}>
-					<input style={{width: '500px'}}></input>
-					<button type='submit'>Submit</button>
-				</form>
-			</div>
-		)
+			)
+		}
 	}
 })
